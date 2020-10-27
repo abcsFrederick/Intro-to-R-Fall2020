@@ -1,0 +1,20 @@
+---
+title: "Seeking Help"
+author: "Amy Stonelake"
+date: "11/3/2020"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+* Questions
+    * How can I get help in R?
+
+* Objectives
+    * To be able read R help files for functions and special operators.
+    * To be able to use CRAN task views to identify packages to solve a problem.
+    * To be able to seek help from your peers.
