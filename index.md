@@ -51,3 +51,4 @@ We will be making regular updates to the repository each week, including additio
 
 ## If you don't have git
 
+If you are having trouble getting git to work on your computer, you can download the repository directly from GitHub using [this link](https://github.com/abcsFrederick/Intro-to-R-Fall2020/archive/main.zip). You'll set up your RStudio project similarly as described above, but instead of picking "Version Control", unzip the repository and use the "Existing Directory" option.
