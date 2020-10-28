@@ -8,19 +8,19 @@ In preparation for this course, you should have installed [R](http://cran.rstudi
 
 -   Open RStudio and select File \> New Project...
 
-![](_images/newProject0.png)
+![](assets/images/newProject0.png)
 
 -   Create using version control.
 
-![](_images/newProject1.png)
+![](assets/images/newProject1.png)
 
 -   Select Git
 
-![](_images/newProject2.png)
+![](assets/images/newProject2.png)
 
 -   Enter the repository URL (<https://github.com/abcsFrederick/Intro-to-R-Fall2020> ) and select a location to download it.
 
-![](_images/newProject3.png)
+![](assets/images/newProject3.png)
 
 -   This should download and open the workshop repository. If it doesn't, you may need to update your git settings or [install git](https://git-scm.com/download/win) before continuing (you should only have to install git if working on a Windows machine).
 
@@ -43,11 +43,11 @@ We will be making regular updates to the repository each week, including additio
 
 -   Next, you need to select Tools \> Version Control \> Pull Branches
 
-![](_images/updateRepo1.png)
+![](assets/images/updateRepo1.png)
 
 -   RStudio should then automagically update your copy with updates from GitHub.
 
-![](_images/updateRepo2.png)
+![](assets/images/updateRepo2.png)
 
 ## If you don't have git
 

@@ -5,3 +5,4 @@
 *.RData
 .DS_Store
 *.Rproj
+_site/
