@@ -1,0 +1,119 @@
+---
+title: "Getting Help in R"
+author: "Amy Stonelake"
+date: "11/3/2020"
+output: html_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+### Software Carpentry: R for Reproducible Software Analysis. <https://swcarpentry.github.io/r-novice-gapminder/> 
+
+ 
+
+### Learning Objectives 
+1. To be able read R help files for functions and special operators.
+1. To be able to use CRAN task views to identify packages to solve a problem.
+1. To be able to seek help from your peers.
+
+
+## Questions
+
+1. __How can I get help in R?__ (How to access and read Help Files)
+  * How can I get help with functions?
+      * What is a function? 
+      * A function performs a task, it takes the variables you have provided and does something with them. For example:
+  ```
+  seq(1,10)
+  mean(1:100)
+  sum(1:1000)
+  ```
+  
+  * __How can I get help with "special operators", and how do I use them?__
+    * The assignment operator "<-" assigns a value to a variable, for example:
+  
+```
+  students<-100
+  students
+  
+  students<-"hard-working"
+  students
+```
+
+  * __How can I get help with packages?__
+    * What is a package?
+    * A package is a collection of functions, along with data and compiled code. 
+    * Here are some examples of packages. 
+  
+  ```
+  packageDescription("stats")
+  
+  install.packages("ggplot2")
+  
+```
+  
+
+
+## Answers 
+
+1. __Reading Help Files__
+
+  * _Help with Functions._ In the RStudio Console Window, type ?name_of_function or help(function_name) like this:
+
+```
+?barplot
+```
+or this:
+```
+help(barplot)
+```
+
+Or if you don't remember the name of the function use two question marks like this to do a search
+
+```
+??bar
+```
+  * _Help with Special operators._ Type this at the prompt to get more information about this assignment operator.
+
+```
+?"<-"
+```
+This assignment operator is used to assign a value to a name, like this:
+```
+number_of_students <- 100
+```
+where the number of students in the class is 100!
+
+  * _Help with Packages._ Vignettes are tutorials created for a package, where you can find tutorials and extensive example documentation. Here is how you call vignettes where "vignette(package="package_name")"
+
+```
+vignette(package="ggplot2")
+vignette("ggplot2-specs")
+```
+  
+  2.  __CRAN task views__ <https:cran.r-project.org/web/views> helps to provide guidance on which packages you might need for a certain task, for example the "Genetics" package for Statistical Genetics. 
+  
+  3. __Getting help from others__
+      Stack Overflow <https:stackoverflow.com> is a place where you can post questions, search questions others have asked, and contribute to answering questions from the community. Use "?dput" to dump the data you're working with into a format that can be copy/pasted by someone else into their own R session and "sessionInfo()" to get useful info about your operating system, installed packages and versions. Send this info along with your question. 
+    
+```
+?dput
+sessionInfo()
+```
+---
+## Other ways to find help.
+
+1. Official R Help 
+  * find the Help menu at the top of the RStudio Window, select "R Help" or "Search R Help"
+  * Help -> R Help includes resources on R and RStudio, Manuals such as "An Introduction to R". 
+  * Help -> Cheatsheets -> select a cheatsheet or browse
+
+## Ways to find help in this class.
+
+1. In class, the chat will be monitored for questions and answered by co-instructors or helpers during the class.
+
+1. Office Hours (Thursdays from 12 - 1 PM). Email mailto:ncibtep@nih.gov with a question or topic and to reserve a spot. 
+   
+1. Outside of class, we have created a Question and Answer Forum for this class on the BTEP web site at <https:btep.ccr.cancer.gov/question/r-workshop/> where you can post any questions and also contribute to answers. If you don't have an account on the BTEP web site already, you need to create one to be able the access this resource. 

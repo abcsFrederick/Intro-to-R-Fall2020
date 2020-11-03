@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<POLL TYPE="named" SHOWTIMER="yes" ALARM="5:0" NOANSWER="yes" SHOWRESPONSE="yes">
-
-<QUESTION TYPE="mcone" TITLE="Have&nbsp;you&nbsp;used&nbsp;version&nbsp;control&nbsp;before&nbsp;(e.g.&nbsp;git,&nbsp;svn)?">
-<ANSWER ISCORRECT="false">Yes</ANSWER>
-<ANSWER ISCORRECT="false">No</ANSWER>
-</QUESTION>
-
-</POLL>
