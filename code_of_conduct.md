@@ -42,7 +42,7 @@ Intimidation and bullying include, but are not limited to:
 ### Meeting Recordings
 
 Participants should be aware that sessions will be recorded
-and posted on the [workshop Streams channel]().
+and posted on the [workshop VBrick channel](https://nci.rev.vbrick.com/#/media/all?team=fe9c8242-8aed-48b3-8fa1-9def0eb921b9).
 
 ### Enforcement
 
