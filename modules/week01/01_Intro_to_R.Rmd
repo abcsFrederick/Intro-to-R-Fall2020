@@ -49,7 +49,7 @@ Follow along at [Introduction to R and RStudio](http://swcarpentry.github.io/r-n
 ```{r variables}
 ```
 
-### Challenge 1 solution (poll, multiple answers)
+### Challenge 1 solution (Poll a)
 
 Which of the following are valid R variable names?
 
@@ -77,7 +77,7 @@ Which of the following are valid R variable names?
 ```{r packages}
 ```
 
-## Challenge Problems (breakout rooms)
+## Challenge Problems
 
 ### Challenge 2 solution
 
@@ -91,9 +91,12 @@ What will be the value of each variable after each statement in the following co
 (age <- age - 20)
 ```
 
-### Callenge 3 solution
+### Callenge 3 solution (Poll b)
 
 Following up from the previous challenge, write a command to compare mass to age. Is mass larger than age?
+
+* Yes
+* No
 
 ```{r challenge3}
 

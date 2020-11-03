@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<POLL TYPE="anonymous" SHOWTIMER="yes" ALARM="5:0" NOANSWER="yes" SHOWRESPONSE="yes">
+
+<QUESTION TYPE="mcone" TITLE="This&nbsp;course&nbsp;met&nbsp;my&nbsp;expectations:">
+<ANSWER ISCORRECT="false">Failed&nbsp;to&nbsp;meet&nbsp;expectations</ANSWER>
+<ANSWER ISCORRECT="false">Met&nbsp;expectations</ANSWER>
+<ANSWER ISCORRECT="false">Exceeded&nbsp;expectations</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="mcone" TITLE="The&nbsp;pace&nbsp;of&nbsp;today's&nbsp;session&nbsp;was:">
+<ANSWER ISCORRECT="false">Too&nbsp;slow</ANSWER>
+<ANSWER ISCORRECT="false">Just&nbsp;the&nbsp;right&nbsp;pace</ANSWER>
+<ANSWER ISCORRECT="false">Too&nbsp;fast</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="mcone" TITLE="The&nbsp;material&nbsp;for&nbsp;today's&nbsp;session&nbsp;was:">
+<ANSWER ISCORRECT="false">Too&nbsp;basic</ANSWER>
+<ANSWER ISCORRECT="false">Just&nbsp;the&nbsp;right&nbsp;level</ANSWER>
+<ANSWER ISCORRECT="false">Too&nbsp;advanced</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="mcone" TITLE="How&nbsp;was&nbsp;the&nbsp;level&nbsp;of&nbsp;interactivity&nbsp;today?">
+<ANSWER ISCORRECT="false">Not&nbsp;enough&nbsp;interaction</ANSWER>
+<ANSWER ISCORRECT="false">Just&nbsp;the&nbsp;right&nbsp;amount&nbsp;of&nbsp;interaction</ANSWER>
+<ANSWER ISCORRECT="false">Too&nbsp;much&nbsp;interaction</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="text" TITLE="What&nbsp;topics&nbsp;would&nbsp;you&nbsp;have&nbsp;liked&nbsp;to&nbsp;see&nbsp;that&nbsp;were&nbsp;not&nbsp;covered?">
+<ANSWER ISCORRECT="true">Your&nbsp;Answer</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="text" TITLE="What&nbsp;was&nbsp;the&nbsp;best&nbsp;part&nbsp;about&nbsp;today's&nbsp;session?">
+<ANSWER ISCORRECT="true">Your&nbsp;Answer</ANSWER>
+</QUESTION>
+
+<QUESTION TYPE="text" TITLE="What&nbsp;is&nbsp;one&nbsp;thing&nbsp;that&nbsp;would&nbsp;have&nbsp;made&nbsp;today's&nbsp;session&nbsp;better?">
+<ANSWER ISCORRECT="true">Your&nbsp;Answer</ANSWER>
+</QUESTION>
+
+</POLL>

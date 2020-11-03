@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<POLL TYPE="anonymous" SHOWTIMER="yes" ALARM="5:0" NOANSWER="yes" SHOWRESPONSE="yes">
+
+<QUESTION TYPE="mcone" TITLE="Following&nbsp;up&nbsp;from&nbsp;the&nbsp;previous&nbsp;challenge,&nbsp;write&nbsp;a&nbsp;command&nbsp;to&nbsp;compare&nbsp;mass&nbsp;to&nbsp;age.&nbsp;Is&nbsp;mass&nbsp;larger&nbsp;than&nbsp;age?">
+<ANSWER ISCORRECT="false">Yes</ANSWER>
+<ANSWER ISCORRECT="false">No</ANSWER>
+</QUESTION>
+
+</POLL>
