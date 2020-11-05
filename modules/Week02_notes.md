@@ -13,6 +13,8 @@ Times listed are for teaching time, only. This leaves time for a 20 minute break
 
 ## Data Structures Challenge Notes
 
+We've created the `data/feline-data.csv` file in case any of the students need it.
+
 ### Challenge 2 (Poll)
 
 Depending on your version of R, there may or may not be a factor in your copy of `cats`. Is there a factor in your `cats` data.frame? what is its name? Try using `?read.csv` to figure out how to switch between reading in strings as factors or character vectors; then write a command or two such that strings are read in as factor or character vectors.
