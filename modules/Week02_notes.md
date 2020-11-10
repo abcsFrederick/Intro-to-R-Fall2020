@@ -3,13 +3,9 @@
 ## Agenda
 
 * [Data Structures](http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/index.html)
-    * George (15 - 20 min) - Overview through Vectors and Type Coercion.
-    * Randy (20 - 25 min) - Data Frames through Matrices
+    * George (30 - 40 min) - Overview through Vectors and Type Coercion.
+    * Randy (30 - 40 min) - Data Frames through Matrices
 * Break at 11:50 - 12:10
-* [Exploring Data Frames](http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/index.html)
-    * Amy (20 min) - Entire module
-
-Times listed are for teaching time, only. This leaves time for a 20 minute break and about 40 minutes, total, for the remainder of the session. Plan to use this time to stop at each challenge question to discuss and take questions. If we have time leftover at the end, we can open up the floor for additional questions.
 
 ## Data Structures Challenge Notes
 
