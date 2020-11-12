@@ -6,47 +6,107 @@
 
 # see http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/index.html
 
-# create and save cats data.frame
+#Create a data frame from multiple vectors of the same length
 cats <- data.frame(coat = c("calico", "black", "tabby"),
                    weight = c(2.1, 5.0, 3.2),
                    likes_string = c(1, 0, 1))
 
-write.csv(x = cats, file = "data/feline-data.csv", row.names = FALSE)
-
-cats <- read.csv('data/feline-data.csv', stringsAsFactors = FALSE)
-
-# look at the weight column of our cats data.frame
+#Retrieve a specific column in the data frame as a vector
 cats$weight
+cats$coat
 
-# add 2 to all weights in cats
+#Run an operation on all elements of a vector
 cats$weight + 2
-
-# paste characters together
 paste("My cat is", cats$coat)
 
-# can you add numbers and characters?
-cats$weight + cats$coat # nope
+#That does not change the original vector
+cats$coat
+
+#Add two vectors of different types (not possible)
+cats$weight + cats$coat
 
 
 ##############
 # data types #
 ##############
 
-# these are "doubles", which means "real numbers" (i.e. not counting numbers)
+#Types in R
 typeof(cats$weight)
-
 typeof(3.14)
-
-# what if we want an integer? Add an "L" on the end of your number.
+typeof(1)
 typeof(1L)
+typeof(1+1i)
+typeof(FALSE)
 
-# complex number
-typeof(1 + 1i)
+#After I edited one value in the weights to be "2.3 or 2.4", now 
+#That column will be treated as factor instead of numeric.
+cats_v2 <- read.csv(file = "./data/feline-data_v2.csv")
+typeof(cats_v2$weight)
 
-# logical value
-typeof(TRUE)
+#I can't do arithmetic computations on factors
+cats_v2$weight + 2
+class(cats)
+class(coat)
 
-# character values
+
+###########
+# Vectors #
+###########
+
+#Create an empty vector of logical values (all defaul to to FALSE)
+my_vector <- vector(length = 3)
+my_vector
+
+#Create an empty vector of characters or strings
+chr_vector <- vector(mode = 'character', length = 3)
+chr_vector
+
+#Print metata data about the vectors (or any data structure) 
+#using the str function
+str(chr_vector)
+str(cats$weight)
+
+#All elements in a vector should be of the same type, if they are note
+#then R coerce to the most common type
+quiz_vector <- c(2, 6, '3')
+str(quiz_vector)
+
+#Numeric + Logical default to all numeric
+coercion_vector <- c(0, TRUE)
+str(coercion_vector)
+
+#You can convert types using "as"
+chr_vector_new <- c('0', '2', '4')
+chr_to_numeric <- as.numeric(chr_vector_new)
+str(chr_to_numeric)
+
+#Convert numeric to logical (all numbers are TRUE except ZERO)
+num_to_logical <- as.logical(chr_to_numeric)
+str(num_to_logical)
+
+#Concatinate vectors
+combined_vector <- c(chr_vector_new, "new_string")
+combined_vector
+
+#Short form for a series
+mySeries <- 1:10
+mySeries
+
+#Shoft form for a sequence
+seq(1,10,by=0.2)
+length(combined_vector)
+
+
+
+my_examples <- 5:8
+my_examples
+
+#Every element in a vector can be assigned a name, in that case
+#The left hand side of the assignment operation returns
+#the variables that will be assigned names from the left hand side
+names(my_examples) <- c("a", "b", "c", "d")
+my_examples
+
 
 ###############
 # Data Frames #
