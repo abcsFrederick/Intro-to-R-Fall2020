@@ -4,7 +4,10 @@ author: "Amy Stonelake"
 date: "11/16/2020"
 output: html_document
 ---
-Click on the blue "Knit" icon above to view this document as HTML
+
+Open this document in RStudio.
+
+Click on the blue "Knit" icon above to view as HTML.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
