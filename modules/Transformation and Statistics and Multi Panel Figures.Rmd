@@ -1,0 +1,211 @@
+---
+title: 'Software Carpentry: R for Reproducible Scientific Analysis, Transformations
+  and Statistics, Multi-panel figures'
+author: "Amy Stonelake"
+date: "12/01/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating Publication-Quality Graphics with ggplot2
+
+__Questions__
+
+1. How can I create publication-quality graphics in R?
+
+__Objectives__
+
+1. To be able to use ggplot2 to generate publication quality graphics.
+1. To apply geometry, aesthetic, and statistics layers to a ggplot plot.
+1. To manipulate the aesthetics of a plot using different colors, shapes, and lines.
+1. To improve data visualization through transforming scales and paneling by group.
+1. To save a plot created with ggplot to disk.
+
+## Transformation and statistics
+
+The set-up.
+
+__ggplot2__
+
+What is "ggplot2"?
+
+1. a very popular package
+1. a member of the "tidyverse"
+1. a way to visualize data
+
+Remember you have to install (do this once) and load the ggplot2() package (do this every session) before you can use it. 
+
+```
+install.packages("ggplot2")
+library("ggplot2")
+```
+__gapminder__ 
+
+Next, we need to install and load the data package for this session.  
+
+```
+install.packages("gapminder")
+library("gapminder")
+```
+    
+FYI: Packages need to be loaded with library() function every new R session, but only installed once. If R was loaded with all packages all the time, it would be a huge burden on memory. By only loading what you need, R can work more efficiently. 
+
+__What is "gapminder"? (gapminder.org)__
+
+Data from Gapminder
+
+An excerpt of the data available at Gapminder.org. For each of 142 countries, the package provides values for life expectancy, GDP per capita, and population, every five years, from 1952 to 2007.
+
+__Let's look at what we've done so far in this lesson. We'll break down this line of code and take a look at each part.__
+
+```{r}
+library("ggplot2")
+library("gapminder")
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
+
+
+__ggplot()__
+
+The ggplot() function is the most important function of the package ggplot2, notice it is called "ggplot()" not "ggplot2". The package is called "ggplot2", the function within the package is "ggplot()". 
+
+__gapminder__
+
+data = gapminder (this is our data set)
+
+__mapping and aesthetics__
+
+mapping = aes(x = , y = )
+
+The "mapping" argument is used to define how the variables are mapped. 
+
+1. The "mapping" argument is always paired with aes(), for "aesthetics". 
+1. The x and y variables of aes() specify which variables map to the x and y axes.
+1. Aesthetic mappings are used to describe objects in a plot, such as the color, shape and transparency of points.
+
+__geom_point__ 
+
+Creates a scatterplot by adding a layer of points to the graph
+
+
+
+Let's take a look at the next line of code.
+
+Due to outliers, it's difficult to see relationships between the points. 
+
+1. scale() functions are used to change units on the x axes by controlling the mapping between the data and visual values of an aesthetic.  
+1. Using the alpha() function, we can also change the transparency of the points. 
+
+```{r}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+```
+
+In this line of code, we've added "(alpha = 0.5)" to change the transparency of the points, and "scale_x_log10()" to adjust the scales. 
+
+scale_ is followed by the name of the aesthetic (x), and then the name of the scale "log10()".
+
+In log(), the data to compute on is "x", and "10" is the base of the logarithm.
+
+"The log10 function applied a transformation to the values of the gdpPercap column (the x value) before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita of 1,000 is now 3 on the x axis, a value of 10,000 corresponds to 4 on the x axis and so on. This makes it easier to visualize the spread of data on the x-axis."
+
+Next, we can fit a relationship to the data with "geom_smooth". The smoothing method is set in (method="lm"). lm stands for "linear model". Data smoothing is done to remove noise from a data set, and can allow important patterns to stand out. (Investopedia)
+
+```{r}
+ggplot(data = gapminder, mapping = aes(x =gdpPercap, y= lifeExp)) + geom_point() + scale_x_log10() + geom_smooth(method="lm")
+```
+
+
+and increase the thickness of the line like this.
+
+```{r}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) + geom_point() + scale_x_log10() + geom_smooth(method = "lm", size = 1.5)
+```
+
+Challenges:
+
+1. Change the color and size of the points on the point layer in the previous example.
+
+
+
+
+```{r}
+ggplot(data = gapminder, mapping = aes(x=gdpPercap, y = lifeExp)) + geom_point(color = "green", size = 1) + scale_x_log10() + geom_smooth(method = "lm", size = 1.5)
+```
+
+
+2. Change the points to a different shape and color by continent with trendlines. 
+```{r}
+ggplot(data = gapminder, mapping = aes(x=gdpPercap, y=lifeExp, color = continent)) + geom_point(size = 2, shape = 5, size = 2) + scale_x_log10() + geom_smooth(method = "lm", size = 2)
+```
+
+
+Note: R has 25 built-in shapes identified by numbers. 5 is open diamonds, 17 is filled triangles.
+
+## Multi-panel figures
+
+Facetting (this information from  R Studio Cloud / Visualize Data, 
+https://rstudio.cloud/learn/primers/3.2)
+
+You can more easily compare subgroups of data if you place each subgroup in its own subplot, a process known as facetting.
+
+facet_grid()
+
+ggplot2 provides two functions for facetting. facet_grid() divides the plot into a grid of subplots based on the values of one or two facetting variables. To use it, add facet_grid() to the end of your plot call. (This example is from another data set.)
+
+```{r}
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = color)) +
+  facet_grid(clarity ~ cut)
+```
+facet_grid() recap
+
+You can use facet_grid() by passing it a formula, the names of two variables connected by a ~.
+
+facet_grid() will split the plot into facets vertically by the values of the first variable: each facet will contain the observations that have a common value of the variable. facet_grid() will split the plot horizontally by values of the second variable. The result is a grid of facets, where each specific subplot shows a specific combination of values.
+
+If you do not wish to split on the vertical or horizontal dimension, pass facet_grid() a . instead of a variable name as a place holder.
+
+__facet_wrap()__
+
+facet_wrap() provides a more relaxed way to facet a plot on a single variable. It will split the plot into subplots and then reorganize the subplots into multiple rows so that each plot has a more or less square aspect ratio. In short, facet_wrap() wraps the single row of subplots that you would get with facet_grid() into multiple rows.
+
+To use facet_wrap() pass it a single variable name with a ~ before it, e.g. facet_wrap( ~ country).
+
+"The facet_wrap layer took a “formula” as its argument, denoted by the tilde (~). This tells R to draw a panel for each unique value in the country column of the gapminder dataset."
+
+```{r}
+americas <- gapminder[gapminder$continent == "Americas",]
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
+  geom_line() + 
+  facet_wrap ( ~ country) +
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+
+
+
+
+Another way to write it: (if you worked on the warm-up sent last week)
+
+```
+ggplot(data = gapminder) +
+geom_point(mapping = aes(x = gdpPercap, y = lifeExp))
+```
+
+
+References.
+
+1. Software Carpentry: R for Reproducible Scientific Analysis. Creating Publication-Quality Graphics with ggplot2. http://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/index.html
+
+1. R for Data Science, Hadley Wickham and Garrett Grolemund, http://r4ds.had.co.nz
+
+1. RStudio Cloud Data Visualization Basics
+https://rstudio.cloud/learn/primers/1.1
+
+1. Visualize Data
+https://rstudio.cloud/learn/primers/3
