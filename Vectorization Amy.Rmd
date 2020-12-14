@@ -1,0 +1,236 @@
+---
+title: 'Software Carpentry: R for Reproducible Scientific Analysis, Vectorization'
+author: "Amy Stonelake"
+date: "12/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Vectorization
+
+__Questions__
+
+1. How can I operate on all the elements of a vector at once?
+
+__Objectives__
+
+1. To understand vectorized operations in R. 
+
+R functions can operate on all elements of a vector without having to create a loop and iterate over each element.
+
+In this example, the multiplication operation occurs to each element of the vector. 
+```
+x <- 1:4
+x * 2
+
+[1] 2 4 6 8
+
+```
+
+Here's another example where we can add two vectors together. Each element of x is added to the corresponding element of y. 
+
+```
+y <- 6:9
+x + y
+
+[1] 7 9 11 13
+
+```
+
+compare to doing it with a loop
+
+```
+output_vector <- c()
+for (i in 1:4) {
+  output_vector[i] <- x[i] + y[i]
+}
+output_vector
+
+
+[1] 7 9 11 13
+```
+
+compare to this:
+
+```
+sum_xy <- x + y
+sum_xy
+
+[1] 7 9 11 13
+```
+__Challenge 1__
+
+__Make a new column in the gapminder data frame__ that contains population in units of millions of people. Check the head or tail of the data frame to make sure it worked. 
+First let's look at the population data in the gapminder data set.
+```
+library("gapminder")
+head(gapminder$pop)
+
+[1]  8425333  9240934 10267083 11537966 13079460 14880372
+```
+Now we'll use vectorization to compute the population in units of millions of people. 
+```
+
+gapminder$pop_millions <- gapminder$pop/1000000
+head(gapminder)
+
+```
+Did it work?
+
+__Challenge 2__
+
+On a single graph, plot population, in millions, against year, for all countries. Don't worry about identifying which country is which. 
+
+```{r}
+library("gapminder")
+library("ggplot2")
+gapminder$pop_millions <- gapminder$pop/1000000
+ggplot(data = gapminder, mapping = aes(x = year, y = pop_millions)) + geom_point()
+
+```
+
+__Challenge 2, Part 2__
+
+But first, a reminder about the %in% operator...
+
+One of the things you can do with the %in% operator:
+
+1. Use the %in% operator to compare two vectors containing letters or factors (words). 
+
+```
+all_of_the_other_reindeer <- c("Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen")
+
+Rudolph <- "Rudolph"
+
+Rudolph %in% all_of_the_other_reindeer
+
+```
+
+What do you get? (FALSE)
+
+Now try this.
+
+```
+all_of_the_other_reindeer_plus_Rudolph <- c("Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen")
+
+Rudolph %in% all_of_the_other_reinder_plus_Rudolph
+
+```
+What do you get now? (TRUE)
+
+
+
+
+Now - repeat the graphing exercise above by graphing only for China, India and Indonesia. 
+
+```{r}
+library("dplyr")
+filter(gapminder, country %in% c("China", "India", "Indonesia")) %>%
+ggplot(aes(x = year, y = pop_millions)) + geom_point()
+
+```
+
+__Comparison operators__
+
+Remember...
+```
+x <- 1:4
+x > 2
+
+[1] FALSE FALSE TRUE TRUE
+
+a <- x > 3
+a
+
+[1] FALSE FALSE FALSE TRUE
+
+```
+Also works with other functions.
+
+```
+x <- 1:4
+log(x)
+
+[1] 0.0000000 0.6931472 1.0986123 1.3862944
+```
+*
+__Matrix multiplication__
+
+Matrix is created with the matrix() function. Dimensions are defined by passing values for nrow and ncol. 
+
+```
+m <-matrix(1:12, nrow=3, ncol=4)
+m * -1
+
+Output
+     [,1] [,2] [,3] [,4]
+[1,]   -1   -4   -7  -10
+[2,]   -2   -5   -8  -11
+[3,]   -3   -6   -9  -12
+
+```
+
+__Very important__
+The * operator is for element-wise multiplication. Matrix multiplication needs the %*% operator. 
+
+```
+m %*% matrix(1, nrow=4, ncol = 1)
+
+   [,1]
+[1,]   22
+[2,]   26
+[3,]   30
+```
+
+```
+matrix(1:4, nrow=1) %*% matrix(1:4, ncol=1)
+
+Output
+   [,1]
+[1,]   30
+```
+
+__Challenge 3__
+
+Given the following matrix.
+
+```
+m <- matrix(1:12, nrow=3, ncol=4)
+m
+
+Output
+    [,1] [,2] [,3] [,4]
+[1,]    1    4    7   10
+[2,]    2    5    8   11
+[3,]    3    6    9   12
+```
+
+What is output expected for:
+
+1. m ^ -1
+1. m * c(1,0,-1)
+1. m > c(0,20)
+
+
+```
+Output
+          [,1]      [,2]      [,3]       [,4]
+[1,] 1.0000000 0.2500000 0.1428571 0.10000000
+[2,] 0.5000000 0.2000000 0.1250000 0.09090909
+[3,] 0.3333333 0.1666667 0.1111111 0.08333333
+
+Output
+     [,1] [,2] [,3] [,4]
+[1,]    1    4    7   10
+[2,]    0    0    0    0
+[3,]   -3   -6   -9  -12
+
+Output
+      [,1]  [,2]  [,3]  [,4]
+[1,]  TRUE FALSE  TRUE FALSE
+[2,] FALSE  TRUE FALSE  TRUE
+[3,]  TRUE FALSE  TRUE FALSE
+
